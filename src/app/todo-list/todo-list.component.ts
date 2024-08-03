@@ -25,6 +25,9 @@ export class TodoListComponent implements OnInit {
       taskName: form.controls['task'].value,
       isCompleted: false
     })
+
+    form.reset();
+
   }
 
   onDelete( index: number ) {
@@ -32,6 +35,12 @@ export class TodoListComponent implements OnInit {
 
     this.taskArray.splice(index, 1)
 
+  }
+
+  oncheck( index: number ) {
+    console.log(this.taskArray);
+
+    this.taskArray[index].isCompleted = !this.taskArray[index].isCompleted;
   }
 
 }
